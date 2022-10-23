@@ -91,7 +91,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
 
 <body onload="shebei()">
 
-<audio controls autoplay style="display:none;">
+<audio controls  style="display:none;" id="ren">
   <source src="" type="audio/ogg">  
 </audio>
 
@@ -112,7 +112,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
             _fanyi.innerHTML = xiangmu.yisi;
 			document.getElementsByTagName("audio")[0].src="http://dict.youdao.com/dictvoice?type=1&audio="+_text.innerHTML;
 			
-			
+			document.getElementById("ren").play();
             var z = 1;
             function zibiandan() {
                 var zhuan = setTimeout(function () {
