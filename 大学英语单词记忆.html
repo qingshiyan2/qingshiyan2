@@ -91,7 +91,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
 
 <body onload="shebei()">
 
-<audio controls autoplay style="display:none;">
+<audio controls autoplay style="display:none;" id="ren">
   <source src="" type="audio/ogg">  
 </audio>
 
@@ -111,7 +111,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
             _text.innerHTML = xiangmu.word;			
             _fanyi.innerHTML = xiangmu.yisi;
 			document.getElementsByTagName("audio")[0].src="http://dict.youdao.com/dictvoice?type=1&audio="+_text.innerHTML;
-			
+			document.getElementById("ren").play();
 			
             var z = 1;
             function zibiandan() {
@@ -123,7 +123,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
                     else {
                         zibiandan();//调用自身
                     }
-                }, 80);
+                }, 300);
             }
             zibiandan();
             var _shuru = document.getElementById("shuru");
@@ -135,6 +135,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
 
                     _shuru.blur();//失去焦点
                     if (document.getElementById("shuru").value == _text.innerHTML) {
+			document.getElementById("shuru").value="";
                         var w = 1;
                         function sidiao() {
                             //alert("听写正确");
@@ -145,6 +146,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
                                 if (w.toFixed(1) < -0.1) { clearTimeout(sixunhuan); return; }
                                 else {
                                     sidiao();//调用自身
+				    document.getElementById("shuru").value="";	
                                 }
                             }, 40);
                         }
