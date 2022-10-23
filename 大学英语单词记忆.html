@@ -108,8 +108,8 @@ audio.play();// 使用来自谷歌翻译的音频*/
             var dij = "di" + rand;
             var xiangmu = JSON.parse(localStorage.getItem(dij));//获取键名对应的值，并将值转化成js对象
             //alert(xiangmu);
-            _text.innerHTML = xiangmu.word;			
-            _fanyi.innerHTML = xiangmu.yisi;
+            _text.innerHTML = xiangmu.word;
+	    _fanyi.innerHTML = xiangmu.yisi;
 			document.getElementsByTagName("audio")[0].src="http://dict.youdao.com/dictvoice?type=1&audio="+_text.innerHTML;
 			document.getElementById("ren").play();
 			
