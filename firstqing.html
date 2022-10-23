@@ -123,7 +123,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
                     else {
                         zibiandan();//调用自身
                     }
-                }, 80);
+                }, 300);
             }
             zibiandan();
             var _shuru = document.getElementById("shuru");
@@ -135,6 +135,7 @@ audio.play();// 使用来自谷歌翻译的音频*/
 
                     _shuru.blur();//失去焦点
                     if (document.getElementById("shuru").value == _text.innerHTML) {
+			 document.getElementById("shuru").value="";   
                         var w = 1;
                         function sidiao() {
                             //alert("听写正确");
