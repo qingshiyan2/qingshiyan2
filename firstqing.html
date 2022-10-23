@@ -1,11 +1,177 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta  content="yes"  name="apple-mobile-web-app-capable">  <meta  name="viewport"  content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+   <!-- <script type="text/javascript" src="http://responsivevoice.org/responsivevoice/responsivevoice.js"></script>-->
+    
+    <title>4级单词记忆</title>
+    <script type="text/javascript">
+        var di0;
+
+
+        var myArr = [{ status: "0", word: "abandon", yisi: "丢弃" }, { status: "0", word: "ability", yisi: "能力" }, { status: "0", word: "aboard", yisi: "在船" }, { status: "0", word: "abroad", yisi: "在国外" }, { status: "0", word: "absence", yisi: "缺席" }];
+
+        function shebei() {
+			//responsiveVoice.speak("good");
+			
+/*var audio = new Audio();
+audio.src ="http://translate.google.com/translate_tts?ie=utf-8&amp;tl=en&amp;q=" + encodeURI("hello captain");
+audio.play();// 使用来自谷歌翻译的音频*/
+
+			/*var words = new SpeechSynthesisUtterance( 'Hello captain ');
+			 window. speechSynthesis.speak(words);*/
+			
+            function shujujia() {
+                for (var i = 0; i < myArr.length; i++) {
+                    var zifuchuan = JSON.stringify(myArr[i]);//将数组元素转化成字符串
+                    var diji = "di" + i;
+                    localStorage.setItem(diji, zifuchuan);//将转化的字符串存进一个键名内
+                    /*var item=JSON.parse(localStorage.getItem(diji));//获取键名对应的值，并将值转化成js对象
+                    alert("_word="+item.word+",_yisi="+item.yisi);  */
+                                                       }
+                                }
+            if (JSON.parse(localStorage.getItem("di0")) == null) {
+                shujujia();
+            } else { /*alert("已经有了");*/ }
+
+            var sk = window.screen.width;
+            //alert(sk);
+            document.getElementsByTagName("body")[0].style.width = sk + "px";
+            document.getElementById("zong").style.width = sk + "px";
+            document.getElementById("f1").style.width = 0.497 * sk + "px";
+            document.getElementById("f2").style.width = 0.49 * sk + "px";
+            document.getElementById("danci").style.width = 0.497 * sk + "px";
+            document.getElementById("fanyi").style.width = 0.497 * sk + "px";
+            document.getElementById("shuru").style.width = 0.49 * sk + "px";
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        #zong {
+            height: 65px;
+            border: #FFCC99 1px solid;
+        }
+
+        #f1 {
+            height: 63px;
+            border: #000 1px solid;
+            float: left;
+        }
+
+        #f1 span {
+            display: block;
+            height: 29px;
+            border: #000000 1px solid;
+        }
+
+        #f2 {
+            height: 63px;
+            border: #6F3 1px solid;
+            float: left;
+        }
+
+        #f2 input {
+            height: 60px;
+            border: #6F3 1px solid;
+            float: left;
+        }
+    </style>
 </head>
 
-<body>
-<p>你好，我想认识这个新的世界！  </p>
+<body onload="shebei()">
+
+<audio controls autoplay style="display:none;">
+  <source src="" type="audio/ogg">  
+</audio>
+
+    <script type="text/javascript">
+
+
+
+        function haha() {
+            var min = 0;
+            var max = myArr.length;
+            var rand = Math.floor(min + Math.random() * (max - min));//产生一个介于0和数组长度的随机数，用于随机显示单词
+            var _text = document.getElementById("danci");
+            var _fanyi = document.getElementById("fanyi");
+            var dij = "di" + rand;
+            var xiangmu = JSON.parse(localStorage.getItem(dij));//获取键名对应的值，并将值转化成js对象
+            //alert(xiangmu);
+            _text.innerHTML = xiangmu.word;			
+            _fanyi.innerHTML = xiangmu.yisi;
+			document.getElementsByTagName("audio")[0].src="http://dict.youdao.com/dictvoice?type=1&audio="+_text.innerHTML;
+			
+			
+            var z = 1;
+            function zibiandan() {
+                var zhuan = setTimeout(function () {
+                    var ziyanse = 'rgba(128,0,128,' + z + ')';
+                    _text.setAttribute("style", 'color:' + ziyanse + ";");
+                    z -= 0.1;
+                    if (z.toFixed(1) < -0.1) { clearTimeout(zhuan); return; }
+                    else {
+                        zibiandan();//调用自身
+                    }
+                }, 80);
+            }
+            zibiandan();
+            var _shuru = document.getElementById("shuru");
+			var oForm =  document.getElementsByTagName("form")[0];
+			
+            oForm.onsubmit = function (e) {
+                
+                    e.preventDefault();//阻止表单提交事件
+
+                    _shuru.blur();//失去焦点
+                    if (document.getElementById("shuru").value == _text.innerHTML) {
+                        var w = 1;
+                        function sidiao() {
+                            //alert("听写正确");
+                            var sixunhuan = setTimeout(function () {
+                                var yanse = 'rgba(0,255,0,' + w + ')';
+                                _text.setAttribute("style", 'background-color:' + yanse + ";");
+                                w -= 0.1;
+                                if (w.toFixed(1) < -0.1) { clearTimeout(sixunhuan); return; }
+                                else {
+                                    sidiao();//调用自身
+                                }
+                            }, 40);
+                        }
+                        sidiao();
+
+
+
+
+                    
+
+                }
+            }
+
+
+        }
+
+
+
+
+    </script>
+    <div id="zong">
+        <div id="f1"> <span id="danci"> </span> <span id="fanyi"> </span> </div>
+        <div id="f2">
+           <form action=""><input type="text" id="shuru" onclick="haha()" value="" /></form>
+           <!--加form是为了方便监听-->
+        </div>
+    </div>
 </body>
+
 </html>
