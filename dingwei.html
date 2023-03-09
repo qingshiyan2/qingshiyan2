@@ -12,8 +12,15 @@
 </head>
 
 <body>
-
-<a href="prefs:root=Privacy&path=LOCATION" id="jump">跳转IOS 设置->GPS 定位</a>
+    <script type="text/javascript">
+    let notificationSettingURL = URL(string: "prefs:root=Privacy&path=LOCATION")! // 替换该内容即可
+if UIApplication.shared.canOpenURL(notificationSettingURL)
+{
+       UIApplication.shared.open(notificationSettingURL, options: [:], completionHandler: nil)
+}
+    </script>
+    
+<!--<a href="prefs:root=Privacy&path=LOCATION" id="jump">跳转IOS 设置->GPS 定位</a>-->
 
    
 
