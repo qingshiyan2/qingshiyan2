@@ -12,17 +12,26 @@
 </head>
 
 <body onload="haha()">
-  <!--  <script type="text/javascript">
+<script type="text/javascript">
         function haha(){
-    let notificationSettingURL = URL(string: "prefs:root=Privacy&path=LOCATION")! // 替换该内容即可
-if UIApplication.shared.canOpenURL(notificationSettingURL)
+   if (IOS10) {
+
+[[UIApplication sharedApplication]openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+
+}else
+
 {
-       UIApplication.shared.open(notificationSettingURL, options: [:], completionHandler: nil)
+
+NSURL *url = [NSURL URLWithString:@"prefs:root=LOCATION_SERVICES"];
+
+[[UIApplication sharedApplication] openURL:url];
+
 }
+
         }
-    </script>-->
+    </script>
    <script type="text/javascript">
-window.location.href=‘App-Prefs:root=Privacy&path=LOCATION’;
+//window.location.href=‘App-Prefs:root=Privacy&path=LOCATION’;
 
     </script>
 
