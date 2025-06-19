@@ -1,9 +1,10 @@
+
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-936" />
     <meta  content="yes"  name="apple-mobile-web-app-capable">  <meta  name="viewport"  content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
    <!-- <script type="text/javascript" src="http://responsivevoice.org/responsivevoice/responsivevoice.js"></script>-->
     
@@ -118,16 +119,16 @@ audio.play();// 使用来自谷歌翻译的音频*/
             var z = 1;
             function zibiandan() {
                 var zhuan = setTimeout(function () {
-                     var ziyanse = 'rgba(128,0,128,' + z + ')';
-                     _text.setAttribute("style", 'color:' + ziyanse + ";");
-                     z -= 0.1;
-                     if (z.toFixed(1) < -0.1) { clearTimeout(zhuan); return; }
-                     else {
+                    var ziyanse = 'rgba(128,0,128,' + z + ')';
+                    _text.setAttribute("style", 'color:' + ziyanse + ";");
+                    z -= 0.1;
+                    if (z.toFixed(1) < -0.1) { clearTimeout(zhuan); return; }
+                    else {
                         zibiandan();//调用自身
-                     }
+                    }
                 }, 300);
-              }
-             zibiandan();
+            }
+            zibiandan();
             var _shuru = document.getElementById("shuru");
 			var oForm =  document.getElementsByTagName("form")[0];
 			
@@ -136,34 +137,29 @@ audio.play();// 使用来自谷歌翻译的音频*/
                     e.preventDefault();//阻止表单提交事件
 
                     _shuru.blur();//失去焦点
-                    if (document.getElementById("shuru").value == xiangmu.status) {
-                       // _text.setAttribute("style", 'background-color:' + "green" + ";");
-                      // document.getElementById("shuru").fontSize = '19px';
-                       //document.getElementById("shuru").fontWeight='bold';
-                       //document.getElementById("shuru").color = '#69F';
-			//document.getElementById("shuru").value="";
+                    if (document.getElementById("shuru").value == _text.innerHTML) {
+			document.getElementById("shuru").value="";
                         var w = 1;
-                         function sidiao() {
+                        function sidiao() {
                             //alert("听写正确");
-                             var sixunhuan = setTimeout(function () {
-                                 var yanse = 'rgba(0,255,0,' + w + ')';
-                                 _text.setAttribute("style", 'background-color:' + yanse + ";");
-                                 w -= 0.1;
-                                 if (w.toFixed(1) < -0.1) { clearTimeout(sixunhuan); return; }
-                                 else {
-                                      sidiao();//调用自身
+                            var sixunhuan = setTimeout(function () {
+                                var yanse = 'rgba(0,255,0,' + w + ')';
+                                _text.setAttribute("style", 'background-color:' + yanse + ";");
+                                w -= 0.1;
+                                if (w.toFixed(1) < -0.1) { clearTimeout(sixunhuan); return; }
+                                else {
+                                    sidiao();//调用自身
 				    	
-                                  }
-                             }, 40);
-                          }
-                         sidiao();
+                                }
+                            }, 40);
+                        }
+                        sidiao();
 
                   
 
 
                 }
 		    else{document.getElementById("shuru").value="";  
-                       //  document.getElementById("shuru").background-color = '#FF0000';
                    
  } 
 		
