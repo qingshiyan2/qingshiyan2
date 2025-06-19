@@ -114,8 +114,10 @@ audio.play();// 使用来自谷歌翻译的音频*/
             _fanyi.innerHTML = xiangmu.yisi;
 			document.getElementsByTagName("audio")[0].src="http://dict.youdao.com/dictvoice?type=1&audio="+_text.innerHTML;
 			document.getElementById("ren").play();
-			
-            var z = 1;
+	_text.setAttribute("style", 'color:' + "black" + ";");	
+	_fanyi.setAttribute("style", 'color:' + "black" + ";");
+            //var z = 1;
+
             // function zibiandan() {
                //  var zhuan = setTimeout(function () {
                     //  var ziyanse = 'rgba(128,0,128,' + z + ')';
