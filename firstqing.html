@@ -114,23 +114,23 @@ audio.play();// 使用来自谷歌翻译的音频*/
             _fanyi.innerHTML = xiangmu.yisi;
 			document.getElementsByTagName("audio")[0].src="http://dict.youdao.com/dictvoice?type=1&audio="+_text.innerHTML;
 			document.getElementById("ren").play();
-	_text.setAttribute("style", 'color:' + "black" + ";");	
-		alert(_text.innerHTML);
-	_fanyi.setAttribute("style", 'color:' + "black" + ";");
-            //var z = 1;
+	//_text.setAttribute("style", 'color:' + "black" + ";");	
+	//	alert(_text.innerHTML);
+	//_fanyi.setAttribute("style", 'color:' + "black" + ";");
+            var z = 1;
 
-            // function zibiandan() {
-               //  var zhuan = setTimeout(function () {
-                    //  var ziyanse = 'rgba(128,0,128,' + z + ')';
-                    //  _text.setAttribute("style", 'color:' + ziyanse + ";");
-                    //  z -= 0.1;
-                    //  if (z.toFixed(1) < -0.1) { clearTimeout(zhuan); return; }
-                    //  else {
+            function zibiandan() {
+                 var zhuan = setTimeout(function () {
+                      var ziyanse = 'rgba(128,0,128,' + z + ')';
+                      _text.setAttribute("style", 'color:' + ziyanse + ";");
+                      z -= 0.1;
+                      if (z.toFixed(1) < -0.1) { clearTimeout(zhuan); return; }
+                      else {
                         //  zibiandan();//调用自身
-                    //  }
-               //   }, 300);
-            //  }
-            //  zibiandan();
+                      }
+                  }, 300);
+              }
+              zibiandan();
             var _shuru = document.getElementById("shuru");
 			var oForm =  document.getElementsByTagName("form")[0];
 			
@@ -141,32 +141,32 @@ audio.play();// 使用来自谷歌翻译的音频*/
                     _shuru.blur();//失去焦点
                     if (document.getElementById("shuru").value == xiangmu.status) {
                        //  _text.setAttribute("style", 'background-color:' + "green" + ";");
-                       document.getElementById("shuru").fontSize = '19px';
-                       document.getElementById("shuru").fontWeight='bold';
-                       document.getElementById("shuru").color = '#69F';
+                      // document.getElementById("shuru").fontSize = '19px';
+                      // document.getElementById("shuru").fontWeight='bold';
+                      // document.getElementById("shuru").color = '#69F';
 			//document.getElementById("shuru").value="";
                         var w = 1;
-                        //  function sidiao() {
+                          function sidiao() {
                             //alert("听写正确");
-                            //  var sixunhuan = setTimeout(function () {
-                                //  var yanse = 'rgba(0,255,0,' + w + ')';
-                                //  _text.setAttribute("style", 'background-color:' + yanse + ";");
-                                //  w -= 0.1;
-                                //  if (w.toFixed(1) < -0.1) { clearTimeout(sixunhuan); return; }
-                                //  else {
-                                    //  sidiao();//调用自身
+                              var sixunhuan = setTimeout(function () {
+                                  var yanse = 'rgba(0,255,0,' + w + ')';
+                                  _text.setAttribute("style", 'background-color:' + yanse + ";");
+                                  w -= 0.1;
+                                  if (w.toFixed(1) < -0.1) { clearTimeout(sixunhuan); return; }
+                                  else {
+                                      sidiao();//调用自身
 				    	
-                                //  }
-                            //  }, 40);
-                        //  }
-                        //  sidiao();
+                                  }
+                              }, 40);
+                          }
+                          sidiao();
 
                   
 
 
                 }
 		    else{document.getElementById("shuru").value="";  
-                         document.getElementById("shuru").background-color = '#FF0000';
+                         //document.getElementById("shuru").background-color = '#FF0000';
                    
  } 
 		
