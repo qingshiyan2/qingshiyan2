@@ -103,6 +103,10 @@ audio.play();// 使用来自谷歌翻译的音频*/
 
 
         function haha() {
+		document.getElementById("shuru").value="";  
+			 var cuowutishi=document.getElementById("shuru"); 
+			 cuowutishi.setAttribute("style", 'background-color:' + "white" + ";");
+		
             var min = 0;
             var max = myArr.length;
             var rand = Math.floor(min + Math.random() * (max - min));//产生一个介于0和数组长度的随机数，用于随机显示单词
